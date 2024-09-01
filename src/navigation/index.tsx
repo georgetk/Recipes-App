@@ -1,11 +1,8 @@
 import React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Home from '../screens/Home';
-import {ROUTE_NAMES} from '../constants/routeNames';
-import SavedRecipes from '../screens/SavedRecipes';
-import CreateRecipe from '../screens/CreateRecipe';
-import {Notifications} from '../screens/Notifications';
-import MyProfile from '../screens/MyProfile';
+import {
+  BottomTabBarProps,
+  createBottomTabNavigator,
+} from '@react-navigation/bottom-tabs';
 import {
   ImageBackground,
   StyleSheet,
@@ -14,23 +11,30 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Octicons';
 
-import tabBarImage from '../assets/images/bottomTabBar.png';
+import Home from '../screens/Home';
+import SavedRecipes from '../screens/SavedRecipes';
+import CreateRecipe from '../screens/CreateRecipe';
+import MyProfile from '../screens/MyProfile';
 import {
   getNormalizedSizeWithPlatformOffset,
   getNormalizedVerticalSizeWithPlatformOffset,
 } from '../utils/scaling';
-import {APP_COLORS} from '../constants/colors';
+import {Notifications} from '../screens/Notifications';
+import { APP_COLORS, ROUTE_NAMES } from '../constants';
 
-const Tab = createBottomTabNavigator();
+const tabBarImage = require('../assets/images/bottomTabBar.png');
 
-const getIconForRoute = (routeName: string) => {
+const getIconForRoute = (
+  routeName: string,
+  isFocused: boolean,
+): React.ReactNode => {
+  const color = isFocused ? APP_COLORS.PRIMARY_COLOR : APP_COLORS.GREY;
+
   switch (routeName) {
     case ROUTE_NAMES.HOME:
-      return <Icon name="home" color={APP_COLORS.PRIMARY_COLOR} size={23} />;
+      return <Icon name="home" color={color} size={23} />;
     case ROUTE_NAMES.SAVED_RECIPES:
-      return (
-        <Icon name="bookmark" color={APP_COLORS.PRIMARY_COLOR} size={23} />
-      );
+      return <Icon name="bookmark" color={color} size={23} />;
     case ROUTE_NAMES.CREATE_RECIPE:
       return (
         <View style={styles.plusIconContainer}>
@@ -40,61 +44,50 @@ const getIconForRoute = (routeName: string) => {
         </View>
       );
     case ROUTE_NAMES.NOTIFICATIONS:
-      return <Icon name="bell" color={APP_COLORS.PRIMARY_COLOR} size={23} />;
+      return <Icon name="bell" color={color} size={23} />;
     case ROUTE_NAMES.MY_PROFILE:
-      return <Icon name="person" color={APP_COLORS.PRIMARY_COLOR} size={23} />;
-
+      return <Icon name="person" color={color} size={23} />;
     default:
-      return <Icon name="home" color={APP_COLORS.PRIMARY_COLOR} size={23} />;
+      return <Icon name="home" color={color} size={23} />;
   }
 };
 
-function CustomTabBar({state, navigation}) {
+const CustomTabBar = ({state, navigation}: BottomTabBarProps) => {
   return (
     <ImageBackground style={styles.tabBarBgImage} source={tabBarImage}>
-      {state.routes.map(
-        (
-          route: {key: string | number; name: string; params: any},
-          index: any,
-        ) => {
-          const isFocused = state.index === index;
+      {state.routes.map((route, index) => {
+        const isFocused = state.index === index;
 
-          const onPress = () => {
-            const event = navigation.emit({
-              type: 'tabPress',
-              target: route.key,
-              canPreventDefault: true,
-            });
+        const onPress = () => {
+          const event = navigation.emit({
+            type: 'tabPress',
+            target: route.key,
+            canPreventDefault: true,
+          });
 
-            if (!isFocused && !event.defaultPrevented) {
-              navigation.navigate(route.name, route.params);
-            }
-          };
+          if (!isFocused && !event.defaultPrevented) {
+            navigation.navigate(route.name, route.params);
+          }
+        };
 
-          const onLongPress = () => {
-            navigation.emit({
-              type: 'tabLongPress',
-              target: route.key,
-            });
-          };
-
-          return (
-            <TouchableOpacity
-              onPress={onPress}
-              onLongPress={onLongPress}
-              style={styles.tabBarTouchable}>
-              {getIconForRoute(route.name)}
-            </TouchableOpacity>
-          );
-        },
-      )}
+        return (
+          <TouchableOpacity
+            key={route.key}
+            onPress={onPress}
+            style={styles.tabBarTouchable}>
+            {getIconForRoute(route.name, isFocused)}
+          </TouchableOpacity>
+        );
+      })}
     </ImageBackground>
   );
-}
+};
+
+const Tab = createBottomTabNavigator();
 
 export function Tabs() {
   return (
-    <Tab.Navigator tabBar={CustomTabBar}>
+    <Tab.Navigator tabBar={CustomTabBar} screenOptions={{headerShown: false}} >
       <Tab.Screen name={ROUTE_NAMES.HOME} component={Home} />
       <Tab.Screen name={ROUTE_NAMES.SAVED_RECIPES} component={SavedRecipes} />
       <Tab.Screen name={ROUTE_NAMES.CREATE_RECIPE} component={CreateRecipe} />
@@ -105,13 +98,6 @@ export function Tabs() {
 }
 
 const styles = StyleSheet.create({
-  shadow: {
-    shadowColor: '#7F5DF0',
-    shadowOffset: {width: 0, height: 10},
-    shadowOpacity: 0.25,
-    shadowRadius: 3.5,
-    elevation: 5,
-  },
   tabBarBgImage: {
     width: '100%',
     backgroundColor: 'white',

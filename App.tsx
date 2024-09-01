@@ -6,23 +6,31 @@
  */
 
 import React from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {Tabs} from './src/navigation';
+import {APP_COLORS} from './src/constants/colors';
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+
+const queryClient = new QueryClient();
 
 function App(): React.JSX.Element {
   return (
-    <SafeAreaView style={styles.container}>
-      <NavigationContainer>
-        <Tabs />
-      </NavigationContainer>
-    </SafeAreaView>
+    <QueryClientProvider client={queryClient}>
+      <SafeAreaProvider style={styles.container}>
+        <NavigationContainer>
+          <Tabs />
+        </NavigationContainer>
+      </SafeAreaProvider>
+    </QueryClientProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: APP_COLORS.WHITE,
   },
 });
 

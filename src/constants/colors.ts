@@ -1,4 +1,7 @@
 export const APP_COLORS = {
   PRIMARY_COLOR: '#00C0CB',
   WHITE: '#FFFFFF',
+  GREY: '#A9A9A9',
+  TEXT_COLOR: '#303030',
+  BLACK: '#000000',
 };
