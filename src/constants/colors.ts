@@ -4,4 +4,6 @@ export const APP_COLORS = {
   GREY: '#A9A9A9',
   TEXT_COLOR: '#303030',
   BLACK: '#000000',
+  PALE_BLUE: '#E4F9FA',
+  NEUTRAL: '#C1C1C1',
 };

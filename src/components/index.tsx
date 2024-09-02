@@ -10,6 +10,7 @@ import HorizontalSeparator from './HorizontalSeparator';
 import PrimaryButton from './PrimaryButton';
 import TextButton from './TextButton';
 import {SaveButton} from './SaveItem';
+import {ListEmptyComponent} from './ListEmptyComponent';
 
 export {
   ContainerWithHorizontalMargin,
@@ -24,4 +25,5 @@ export {
   PrimaryButton,
   TextButton,
   SaveButton,
+  ListEmptyComponent,
 };
