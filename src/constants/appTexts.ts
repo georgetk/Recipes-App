@@ -6,4 +6,5 @@ export const APP_TEXTS = {
   NO_ITEMS: 'No items available',
   TIME: 'Time',
   STATIC_TIME: '10 Mins',
+  SAVED_RECIPES: 'Saved recipes',
 };

@@ -2,27 +2,31 @@ import React from 'react';
 import {
   ContainerWithHorizontalMargin,
   LargeTitle,
-  MainContainer,
   InputField,
   Title,
+  MainScrollContainer,
+  BottomSpacer,
 } from '../../components';
 import {APP_TEXTS} from '../../constants';
 import {styles} from './styles';
 import {TrendingNowList} from './TrendingNowList';
-import {ScrollView} from 'react-native';
 import {PopularCategory} from './PopularCategory';
+import MainViewContainer from '../../components/MainViewContainer';
 
 const Home: React.FC = () => {
   return (
-    <MainContainer>
-      <ScrollView>
+    <MainViewContainer>
+      <ContainerWithHorizontalMargin>
+        <LargeTitle text={APP_TEXTS.GREETING} styling={styles.greetingText} />
+        <InputField
+          placeholder={APP_TEXTS.SEARCH_RECIPES}
+          isIconShown={true}
+          styling={styles.searchBar}
+        />
+      </ContainerWithHorizontalMargin>
+
+      <MainScrollContainer>
         <ContainerWithHorizontalMargin>
-          <LargeTitle text={APP_TEXTS.GREETING} styling={styles.greetingText} />
-          <InputField
-            placeholder={APP_TEXTS.SEARCH_RECIPES}
-            isIconShown={true}
-            styling={styles.searchBar}
-          />
           <Title text={APP_TEXTS.TRENDING_NOW} />
         </ContainerWithHorizontalMargin>
 
@@ -33,8 +37,10 @@ const Home: React.FC = () => {
         </ContainerWithHorizontalMargin>
 
         <PopularCategory />
-      </ScrollView>
-    </MainContainer>
+
+        <BottomSpacer />
+      </MainScrollContainer>
+    </MainViewContainer>
   );
 };
 

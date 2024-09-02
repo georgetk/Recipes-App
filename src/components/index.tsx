@@ -1,5 +1,5 @@
+import MainScrollContainer from './MainScrollContainer';
 import ContainerWithHorizontalMargin from './ContainerWithHorizontalMargin';
-import MainContainer from './MainContainer';
 import LargeTitle from './LargeTitle';
 import Title from './Title';
 import Subtitle from './Subtitle';
@@ -11,10 +11,13 @@ import PrimaryButton from './PrimaryButton';
 import TextButton from './TextButton';
 import {SaveButton} from './SaveItem';
 import {ListEmptyComponent} from './ListEmptyComponent';
+import MemoizedRecipeListItem from './RecipeListItem';
+import VerticalSeparator from './VerticalSeparator';
+import BottomSpacer from './BottomSpacer';
 
 export {
+  MainScrollContainer,
   ContainerWithHorizontalMargin,
-  MainContainer,
   InputField,
   LargeTitle,
   Title,
@@ -26,4 +29,7 @@ export {
   TextButton,
   SaveButton,
   ListEmptyComponent,
+  MemoizedRecipeListItem,
+  VerticalSeparator,
+  BottomSpacer,
 };

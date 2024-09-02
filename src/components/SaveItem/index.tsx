@@ -12,7 +12,7 @@ type TSaveButton = {
 };
 
 export const SaveButton: React.FC<TSaveButton> = ({item, styling}) => {
-  const [getColor, handleSavePress] = useSavedItem();
+  const {getColor, handleSavePress} = useSavedItem();
 
   return (
     <TouchableOpacity

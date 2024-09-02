@@ -6,19 +6,34 @@ import {
 import {APP_COLORS} from '../constants';
 
 export const styles = StyleSheet.create({
+  tabBarView: {
+    width: '100%',
+    flexDirection: 'row',
+    height: getNormalizedVerticalSizeWithPlatformOffset(100),
+    position: 'absolute',
+    bottom: 0,
+    // shadowColor: APP_COLORS.GREY,
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 0.25,
+    // shadowRadius: 3.84,
+
+    //elevation: 5,
+  },
   tabBarBgImage: {
     width: '100%',
-    backgroundColor: 'white',
     flexDirection: 'row',
     height: getNormalizedVerticalSizeWithPlatformOffset(100),
   },
   tabBarTouchable: {
     flex: 1,
     alignItems: 'center',
-    paddingTop: getNormalizedVerticalSizeWithPlatformOffset(10),
+    paddingTop: getNormalizedVerticalSizeWithPlatformOffset(20),
   },
   plusIconContainer: {
-    top: -30,
+    top: -40,
     justifyContent: 'center',
     alignItems: 'center',
   },

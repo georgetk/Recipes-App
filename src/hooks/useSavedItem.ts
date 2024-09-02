@@ -3,10 +3,11 @@ import {TMeal} from '../types';
 import {useSavedRecipesStore} from '../store';
 import {APP_COLORS} from '../constants';
 
-type TUseSavedItemReturn = [
-  (recipeItem: TMeal) => string, // getColor function
-  (recipeItem: TMeal) => void, // handleSavePress function
-];
+type TUseSavedItemReturn = {
+  getColor: (recipeItem: TMeal) => string;
+  handleSavePress: (recipeItem: TMeal) => void;
+  savedRecipes: TMeal[];
+};
 
 export const useSavedItem = (): TUseSavedItemReturn => {
   const {savedRecipes, addSavedRecipes, removeSavedRecipes} =
@@ -31,5 +32,5 @@ export const useSavedItem = (): TUseSavedItemReturn => {
     [savedRecipes, addSavedRecipes, removeSavedRecipes],
   );
 
-  return [getColor, handleSavePress];
+  return {getColor, handleSavePress, savedRecipes};
 };

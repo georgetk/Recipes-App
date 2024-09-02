@@ -7,7 +7,7 @@ type TMainContainer = {
   children: ReactNode;
 };
 
-const MainContainer: React.FC<TMainContainer> = ({children}) => {
+const MainViewContainer: React.FC<TMainContainer> = ({children}) => {
   const topHeight = useNotchHeight();
 
   return (
@@ -19,4 +19,4 @@ const styles = StyleSheet.create({
   container: {flex: 1, backgroundColor: APP_COLORS.WHITE},
 });
 
-export default MainContainer;
+export default MainViewContainer;

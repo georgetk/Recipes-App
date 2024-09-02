@@ -46,32 +46,37 @@ const getIconForRoute = (
 
 const CustomTabBar: React.FC<BottomTabBarProps> = ({state, navigation}) => {
   return (
-    <ImageBackground style={styles.tabBarBgImage} source={tabBarImage}>
-      {state.routes.map((route, index) => {
-        const isFocused = state.index === index;
+    <View style={styles.tabBarView}>
+      <ImageBackground
+        style={styles.tabBarBgImage}
+        source={tabBarImage}
+        imageStyle={{}}>
+        {state.routes.map((route, index) => {
+          const isFocused = state.index === index;
 
-        const onPress = () => {
-          const event = navigation.emit({
-            type: 'tabPress',
-            target: route.key,
-            canPreventDefault: true,
-          });
+          const onPress = () => {
+            const event = navigation.emit({
+              type: 'tabPress',
+              target: route.key,
+              canPreventDefault: true,
+            });
 
-          if (!isFocused && !event.defaultPrevented) {
-            navigation.navigate(route.name, route.params);
-          }
-        };
+            if (!isFocused && !event.defaultPrevented) {
+              navigation.navigate(route.name, route.params);
+            }
+          };
 
-        return (
-          <TouchableOpacity
-            key={route.key}
-            onPress={onPress}
-            style={styles.tabBarTouchable}>
-            {getIconForRoute(route.name, isFocused)}
-          </TouchableOpacity>
-        );
-      })}
-    </ImageBackground>
+          return (
+            <TouchableOpacity
+              key={route.key}
+              onPress={onPress}
+              style={styles.tabBarTouchable}>
+              {getIconForRoute(route.name, isFocused)}
+            </TouchableOpacity>
+          );
+        })}
+      </ImageBackground>
+    </View>
   );
 };
 

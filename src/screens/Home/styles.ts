@@ -19,24 +19,6 @@ export const styles = StyleSheet.create({
     paddingHorizontal: getNormalizedSizeWithPlatformOffset(30),
     alignItems: 'center',
   },
-  trendingItemContainer: {
-    borderRadius: getNormalizedSizeWithPlatformOffset(10),
-    width: getNormalizedSizeWithPlatformOffset(280),
-  },
-  trendingImageItem: {
-    width: getNormalizedSizeWithPlatformOffset(280),
-    height: getNormalizedVerticalSizeWithPlatformOffset(180),
-  },
-  trendingImageStyle: {
-    borderRadius: getNormalizedSizeWithPlatformOffset(10),
-  },
-  trendingItemText: {
-    marginTop: getNormalizedVerticalSizeWithPlatformOffset(20),
-  },
-  trendingRecipeSaveContainer: {
-    top: 8,
-    left: getNormalizedSizeWithPlatformOffset(240),
-  },
   popularRecipeContainer: {
     width: getNormalizedSizeWithPlatformOffset(150),
     height: getNormalizedVerticalSizeWithPlatformOffset(250),
@@ -52,24 +34,26 @@ export const styles = StyleSheet.create({
     position: 'absolute',
     alignSelf: 'center',
     top: -getNormalizedSizeWithPlatformOffset(110) / 2,
-    borderRadius: getNormalizedSizeWithPlatformOffset(115) / 2,
-    width: getNormalizedSizeWithPlatformOffset(115),
-    height: getNormalizedSizeWithPlatformOffset(115),
+    borderRadius: getNormalizedSizeWithPlatformOffset(120) / 2,
+    width: getNormalizedSizeWithPlatformOffset(120),
+    height: getNormalizedSizeWithPlatformOffset(120),
     justifyContent: 'center',
     alignItems: 'center',
+    // shadowColor: APP_COLORS.GREY,
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 0.25,
+    // shadowRadius: 3.84,
+
+    // elevation: 5,
+    // backgroundColor: 'rgba(0,0,0,0.5)',
   },
   popularRecipeImage: {
     width: getNormalizedSizeWithPlatformOffset(110),
     height: getNormalizedSizeWithPlatformOffset(110),
     borderRadius: getNormalizedSizeWithPlatformOffset(110) / 2,
-    shadowColor: APP_COLORS.BLACK,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0,
-    shadowRadius: 3.84,
-    elevation: 5,
   },
   bottomBodyContainer: {
     marginHorizontal: getNormalizedSizeWithPlatformOffset(15),
