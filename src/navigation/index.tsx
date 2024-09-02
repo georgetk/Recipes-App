@@ -3,24 +3,16 @@ import {
   BottomTabBarProps,
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
-import {
-  ImageBackground,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {ImageBackground, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Octicons';
 
 import Home from '../screens/Home';
 import SavedRecipes from '../screens/SavedRecipes';
 import CreateRecipe from '../screens/CreateRecipe';
 import MyProfile from '../screens/MyProfile';
-import {
-  getNormalizedSizeWithPlatformOffset,
-  getNormalizedVerticalSizeWithPlatformOffset,
-} from '../utils/scaling';
 import {Notifications} from '../screens/Notifications';
-import { APP_COLORS, ROUTE_NAMES } from '../constants';
+import {APP_COLORS, ROUTE_NAMES} from '../constants';
+import {styles} from './styles';
 
 const tabBarImage = require('../assets/images/bottomTabBar.png');
 
@@ -52,7 +44,7 @@ const getIconForRoute = (
   }
 };
 
-const CustomTabBar = ({state, navigation}: BottomTabBarProps) => {
+const CustomTabBar: React.FC<BottomTabBarProps> = ({state, navigation}) => {
   return (
     <ImageBackground style={styles.tabBarBgImage} source={tabBarImage}>
       {state.routes.map((route, index) => {
@@ -87,7 +79,7 @@ const Tab = createBottomTabNavigator();
 
 export function Tabs() {
   return (
-    <Tab.Navigator tabBar={CustomTabBar} screenOptions={{headerShown: false}} >
+    <Tab.Navigator tabBar={CustomTabBar} screenOptions={{headerShown: false}}>
       <Tab.Screen name={ROUTE_NAMES.HOME} component={Home} />
       <Tab.Screen name={ROUTE_NAMES.SAVED_RECIPES} component={SavedRecipes} />
       <Tab.Screen name={ROUTE_NAMES.CREATE_RECIPE} component={CreateRecipe} />
@@ -96,30 +88,3 @@ export function Tabs() {
     </Tab.Navigator>
   );
 }
-
-const styles = StyleSheet.create({
-  tabBarBgImage: {
-    width: '100%',
-    backgroundColor: 'white',
-    flexDirection: 'row',
-    height: getNormalizedVerticalSizeWithPlatformOffset(100),
-  },
-  tabBarTouchable: {
-    flex: 1,
-    alignItems: 'center',
-    paddingTop: getNormalizedVerticalSizeWithPlatformOffset(10),
-  },
-  plusIconContainer: {
-    top: -30,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  plusIcon: {
-    width: getNormalizedSizeWithPlatformOffset(50),
-    height: getNormalizedSizeWithPlatformOffset(50),
-    borderRadius: getNormalizedSizeWithPlatformOffset(50) / 2,
-    backgroundColor: APP_COLORS.PRIMARY_COLOR,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
