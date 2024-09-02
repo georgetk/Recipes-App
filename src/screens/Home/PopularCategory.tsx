@@ -1,11 +1,10 @@
 import {useQuery} from '@tanstack/react-query';
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {REACT_QUERY_KEYS} from '../../constants';
 import {getAllCategories} from '../../api/getAllCategories';
-import {FlatList, ListRenderItem, TouchableOpacity} from 'react-native';
+import {FlatList} from 'react-native';
 import {styles} from './styles';
-import {HorizontalSeparator, PrimaryButton, TextButton} from '../../components';
-import {TCategory} from '../../types';
+import {HorizontalSeparator, MemoizedCategoryButton} from '../../components';
 import {PopularCategoryRecipeList} from './PopularCategoryRecipeList';
 
 export const PopularCategory: React.FC = () => {
@@ -22,19 +21,6 @@ export const PopularCategory: React.FC = () => {
     }
   }, [query.data]);
 
-  const renderItem: ListRenderItem<TCategory> = useCallback(
-    ({item}) => (
-      <TouchableOpacity onPress={() => setSelectedCategory(item?.strCategory)}>
-        {item?.strCategory === selectedCategory ? (
-          <PrimaryButton text={item?.strCategory} />
-        ) : (
-          <TextButton text={item?.strCategory} />
-        )}
-      </TouchableOpacity>
-    ),
-    [selectedCategory],
-  );
-
   return (
     <>
       <FlatList
@@ -45,7 +31,13 @@ export const PopularCategory: React.FC = () => {
         contentContainerStyle={styles.flatListContentStyle}
         keyExtractor={item => item.idCategory}
         ItemSeparatorComponent={HorizontalSeparator}
-        renderItem={renderItem}
+        renderItem={({item}) => (
+          <MemoizedCategoryButton
+            item={item}
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+          />
+        )}
       />
 
       <PopularCategoryRecipeList selectedCategory={selectedCategory} />

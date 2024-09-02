@@ -1,5 +1,5 @@
-import React, {useCallback} from 'react';
-import {FlatList, ListRenderItem} from 'react-native';
+import React from 'react';
+import {FlatList} from 'react-native';
 import {styles} from './styles';
 import {
   HorizontalSeparator,
@@ -9,18 +9,12 @@ import {
 import {getTrendingRecipes} from '../../api/getTrendingRecipes';
 import {REACT_QUERY_KEYS} from '../../constants';
 import {useQuery} from '@tanstack/react-query';
-import {TMeal} from '../../types';
 
 export const TrendingNowList: React.FC = () => {
   const query = useQuery({
     queryKey: [REACT_QUERY_KEYS.TRENDING_RECIPES],
     queryFn: getTrendingRecipes,
   });
-
-  const renderItem: ListRenderItem<TMeal> = useCallback(
-    ({item}) => <MemoizedRecipeListItem item={item} />,
-    [],
-  );
 
   return (
     <FlatList
@@ -32,7 +26,7 @@ export const TrendingNowList: React.FC = () => {
       keyExtractor={item => item.idMeal}
       ItemSeparatorComponent={HorizontalSeparator}
       ListEmptyComponent={ListEmptyComponent}
-      renderItem={renderItem}
+      renderItem={({item}) => <MemoizedRecipeListItem item={item} />}
     />
   );
 };

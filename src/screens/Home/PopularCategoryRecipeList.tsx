@@ -1,18 +1,15 @@
+import React from 'react';
+import {REACT_QUERY_KEYS} from '../../constants';
+import {FlatList} from 'react-native';
 import {useQuery} from '@tanstack/react-query';
-import React, {useCallback} from 'react';
-import {APP_TEXTS, REACT_QUERY_KEYS} from '../../constants';
-import {FlatList, Image, ListRenderItem, View} from 'react-native';
+
 import {
-  BodyText,
-  Caption,
   HorizontalSeparator,
   ListEmptyComponent,
-  SaveButton,
+  MemoizedPopularRecipeItem,
 } from '../../components';
-import {TMeal} from '../../types';
 import {getRecipesInCategory} from '../../api/getRecipesInCategory';
 import {styles} from './styles';
-import {useImagePreview} from '../../hooks/useImagePreview';
 
 type TPopularCategoryRecipeList = {
   selectedCategory: string;
@@ -27,38 +24,6 @@ export const PopularCategoryRecipeList: React.FC<
     enabled: !!selectedCategory, // Only run query if selectedCategory is truthy
   });
 
-  const getPreviewURL = useImagePreview();
-
-  const renderItem: ListRenderItem<TMeal> = useCallback(
-    ({item}) => (
-      <View style={styles.popularRecipeContainer}>
-        <View style={styles.bottomView}>
-          <View style={styles.popularRecipeImageContainer}>
-            <Image
-              style={styles.popularRecipeImage}
-              source={{uri: getPreviewURL(item?.strMealThumb)}}
-            />
-          </View>
-          <View style={styles.bottomBodyContainer}>
-            <BodyText text={item.strMeal} styling={styles.popularRecipeTitle} />
-            <View style={styles.bottomBodyView}>
-              <Caption text={APP_TEXTS.TIME} styling={styles.bottomTimeLabel} />
-
-              <View style={styles.bottomTimeAndButtonContainer}>
-                <Caption
-                  text={APP_TEXTS.STATIC_TIME}
-                  styling={styles.bottomTimeValueText}
-                />
-                <SaveButton item={item} />
-              </View>
-            </View>
-          </View>
-        </View>
-      </View>
-    ),
-    [getPreviewURL],
-  );
-
   return (
     <>
       <FlatList
@@ -70,7 +35,7 @@ export const PopularCategoryRecipeList: React.FC<
         keyExtractor={item => item.idMeal}
         ItemSeparatorComponent={HorizontalSeparator}
         ListEmptyComponent={ListEmptyComponent}
-        renderItem={renderItem}
+        renderItem={({item}) => <MemoizedPopularRecipeItem item={item} />}
       />
     </>
   );

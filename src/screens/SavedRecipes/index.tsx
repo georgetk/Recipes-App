@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React from 'react';
 import {
   BottomSpacer,
   ContainerWithHorizontalMargin,
@@ -6,9 +6,8 @@ import {
   MemoizedRecipeListItem,
   VerticalSeparator,
 } from '../../components';
-import {FlatList, ListRenderItem} from 'react-native';
+import {FlatList} from 'react-native';
 import {useSavedItem} from '../../hooks/useSavedItem';
-import {TMeal} from '../../types';
 import MainViewContainer from '../../components/MainViewContainer';
 import {styles} from './styles';
 import {APP_TEXTS} from '../../constants';
@@ -16,15 +15,6 @@ import {APP_TEXTS} from '../../constants';
 const SavedRecipes: React.FC = () => {
   const {savedRecipes} = useSavedItem();
 
-  const renderItem: ListRenderItem<TMeal> = useCallback(
-    ({item}) => (
-      <MemoizedRecipeListItem
-        item={item}
-        styling={styles.savedRecipeListItem}
-      />
-    ),
-    [],
-  );
   return (
     <MainViewContainer>
       <ContainerWithHorizontalMargin>
@@ -37,7 +27,12 @@ const SavedRecipes: React.FC = () => {
           data={savedRecipes}
           showsVerticalScrollIndicator={false}
           ItemSeparatorComponent={VerticalSeparator}
-          renderItem={renderItem}
+          renderItem={({item}) => (
+            <MemoizedRecipeListItem
+              item={item}
+              styling={styles.savedRecipeListItem}
+            />
+          )}
           ListFooterComponent={BottomSpacer}
         />
       </ContainerWithHorizontalMargin>

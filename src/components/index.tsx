@@ -14,6 +14,8 @@ import {ListEmptyComponent} from './ListEmptyComponent';
 import MemoizedRecipeListItem from './RecipeListItem';
 import VerticalSeparator from './VerticalSeparator';
 import BottomSpacer from './BottomSpacer';
+import {MemoizedCategoryButton} from './CategoryButton';
+import {MemoizedPopularRecipeItem} from './PopularRecipeItem';
 
 export {
   MainScrollContainer,
@@ -32,4 +34,6 @@ export {
   MemoizedRecipeListItem,
   VerticalSeparator,
   BottomSpacer,
+  MemoizedCategoryButton,
+  MemoizedPopularRecipeItem,
 };
