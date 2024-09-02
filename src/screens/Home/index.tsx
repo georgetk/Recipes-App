@@ -10,7 +10,7 @@ import {APP_TEXTS} from '../../constants';
 import {styles} from './styles';
 import {TrendingNowList} from './TrendingNowList';
 import {ScrollView} from 'react-native';
-import {PopularCategoryList} from './PopularCategoryList';
+import {PopularCategory} from './PopularCategory';
 
 const Home: React.FC = () => {
   return (
@@ -32,7 +32,7 @@ const Home: React.FC = () => {
           <Title text={APP_TEXTS.POPULAR_CATEGORY} />
         </ContainerWithHorizontalMargin>
 
-        <PopularCategoryList />
+        <PopularCategory />
       </ScrollView>
     </MainContainer>
   );

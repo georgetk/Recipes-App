@@ -9,6 +9,7 @@ import InputField from './InputField';
 import HorizontalSeparator from './HorizontalSeparator';
 import PrimaryButton from './PrimaryButton';
 import TextButton from './TextButton';
+import {SaveButton} from './SaveItem';
 
 export {
   ContainerWithHorizontalMargin,
@@ -22,4 +23,5 @@ export {
   HorizontalSeparator,
   PrimaryButton,
   TextButton,
+  SaveButton,
 };

@@ -1,23 +1,26 @@
 import {create} from 'zustand';
 import {createJSONStorage, persist} from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {TMeal} from '../types';
 
 type TSavedRecipes = {
-  savedRecipes: number[];
-  addSavedRecipes: (recipeID: number) => void;
-  removeSavedRecipes: (recipeID: number) => void;
+  savedRecipes: TMeal[];
+  addSavedRecipes: (recipeItem: TMeal) => void;
+  removeSavedRecipes: (recipeItem: TMeal) => void;
 };
 
 export const useSavedRecipesStore = create<TSavedRecipes>()(
   persist(
     set => ({
       savedRecipes: [],
-      addSavedRecipes: recipeID =>
-        set(state => ({savedRecipes: [...state.savedRecipes, recipeID]})),
-      removeSavedRecipes: recipeID =>
+      addSavedRecipes: recipeItem =>
+        set(state => ({savedRecipes: [...state.savedRecipes, recipeItem]})),
+      removeSavedRecipes: recipeItem =>
         set(state => ({
           savedRecipes: [
-            ...state.savedRecipes.filter(item => item !== recipeID),
+            ...state.savedRecipes.filter(
+              item => item.idMeal !== recipeItem.idMeal,
+            ),
           ],
         })),
     }),
