@@ -1,5 +1,4 @@
 import React, {FC, memo} from 'react';
-import {TouchableOpacity} from 'react-native';
 import PrimaryButton from '../PrimaryButton';
 import TextButton from '../TextButton';
 import {TCategory} from '../../types';
@@ -15,13 +14,19 @@ const CategoryButton: FC<TCategoryButton> = ({
   setSelectedCategory,
   selectedCategory,
 }) => (
-  <TouchableOpacity onPress={() => setSelectedCategory(item?.strCategory)}>
+  <>
     {item?.strCategory === selectedCategory ? (
-      <PrimaryButton text={item?.strCategory} />
+      <PrimaryButton
+        text={item?.strCategory}
+        onPress={() => setSelectedCategory(item?.strCategory)}
+      />
     ) : (
-      <TextButton text={item?.strCategory} />
+      <TextButton
+        text={item?.strCategory}
+        onPress={() => setSelectedCategory(item?.strCategory)}
+      />
     )}
-  </TouchableOpacity>
+  </>
 );
 
 export const MemoizedCategoryButton = memo(CategoryButton);

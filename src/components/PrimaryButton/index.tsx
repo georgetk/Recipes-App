@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 import {
   getNormalizedSizeWithPlatformOffset,
   getNormalizedVerticalSizeWithPlatformOffset,
@@ -9,13 +9,14 @@ import Caption from '../Caption';
 
 type TPrimaryButton = {
   text: string;
+  onPress: () => void;
 };
 
-const PrimaryButton: React.FC<TPrimaryButton> = ({text}) => {
+const PrimaryButton: React.FC<TPrimaryButton> = ({text, onPress}) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <Caption text={text} styling={styles.captionText} />
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -24,7 +25,6 @@ const styles = StyleSheet.create({
     width: getNormalizedSizeWithPlatformOffset(83),
     height: getNormalizedVerticalSizeWithPlatformOffset(34),
     borderRadius: getNormalizedSizeWithPlatformOffset(10),
-    padding: getNormalizedSizeWithPlatformOffset(5),
     backgroundColor: APP_COLORS.PRIMARY_COLOR,
     justifyContent: 'center',
     alignItems: 'center',
