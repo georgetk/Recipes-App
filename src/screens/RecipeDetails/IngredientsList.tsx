@@ -43,7 +43,7 @@ export const IngredientsList: FC<TIngredientsList> = ({mealItem}) => {
       <View style={styles.ingredientsTitleContainer}>
         <Title text={APP_TEXTS.INGREDIENTS} />
         <BodyText
-          text={`${mealItem?.ingredientsAndMeasures.length} items`}
+          text={`${mealItem?.ingredientsAndMeasures.length} ${APP_TEXTS.ITEMS}`}
           styling={styles.itemsCount}
         />
       </View>

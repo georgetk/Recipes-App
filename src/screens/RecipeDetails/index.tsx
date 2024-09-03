@@ -12,8 +12,8 @@ import {useQuery} from '@tanstack/react-query';
 import {getRecipeDetails} from '../../api/getRecipeDetails';
 import {styles} from './styles';
 import {IngredientsList} from './IngredientsList';
-import { TRootStackParamList } from '../../types/navigation';
-import { TMealDetailsResponseWithIngredientsAndMeasures } from '../../types/recipeDetails';
+import {TRootStackParamList} from '../../types/navigation';
+import {TMealDetailsResponseWithIngredientsAndMeasures} from '../../types/recipeDetails';
 
 type Props = NativeStackScreenProps<
   TRootStackParamList,
@@ -45,7 +45,7 @@ export const RecipeDetails: FC<Props> = ({navigation, route}) => {
   }, [navigation]);
 
   const query = useQuery({
-    queryKey: [REACT_QUERY_KEYS.ALL_CATEGORIES],
+    queryKey: [REACT_QUERY_KEYS.RECIPE_DETAILS],
     queryFn: () => getRecipeDetails(idMeal),
   });
 

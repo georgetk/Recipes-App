@@ -4,4 +4,5 @@ export const NETWORK_URL = {
   ALL_CATEGORIES_ENDPOINT: '/categories.php',
   FILTER_BY_CATEGORIES_ENDPOINT: '/filter.php?c=',
   RECIPE_DETAILS_ENDPOINT: '/lookup.php?i=',
+  RANDOM_RECIPE: '/random.php',
 };

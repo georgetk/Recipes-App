@@ -8,4 +8,10 @@ export const APP_TEXTS = {
   STATIC_TIME: '10 Mins',
   SAVED_RECIPES: 'Saved recipes',
   INGREDIENTS: 'Ingredients',
+  ITEMS: 'items',
+  CREATE_RECIPE: 'Create recipe',
+  NOTIFICATIONS: 'Notifications',
+  TODAY: 'Today',
+  NEW_RECIPE: 'New recipe!',
+  RANDOM_RECIPE: 'Tap to see a random recipe.',
 };

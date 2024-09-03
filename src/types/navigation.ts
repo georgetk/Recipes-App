@@ -3,6 +3,8 @@ import {ROUTE_NAMES} from '../constants';
 export type TRootStackParamList = {
   [ROUTE_NAMES.HOME_STACK]: undefined;
   [ROUTE_NAMES.RECIPE_DETAILS_STACK]: {idMeal: string};
+  [ROUTE_NAMES.CREATE_RECIPE_STACK]: undefined;
+
 };
 
 export type TRootTabsParamList = {

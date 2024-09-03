@@ -7,4 +7,7 @@ export const APP_COLORS = {
   PALE_BLUE: '#E4F9FA',
   NEUTRAL: '#C1C1C1',
   BOX_BG: '#F1F1F1',
+  GREEN: '#31B057',
+  PALE_GREEN: '#CEECD7',
+  NEUTRAL_TEXT_COLOR: '#797979',
 };

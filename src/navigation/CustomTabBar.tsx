@@ -57,7 +57,14 @@ export const CustomTabBar: React.FC<BottomTabBarProps> = ({
             });
 
             if (!isFocused && !event.defaultPrevented) {
-              navigation.navigate(route.name, route.params);
+              if (route.name === ROUTE_NAMES.CREATE_RECIPE) {
+                navigation.navigate(
+                  ROUTE_NAMES.CREATE_RECIPE_STACK,
+                  route.params,
+                );
+              } else {
+                navigation.navigate(route.name, route.params);
+              }
             }
           };
 
