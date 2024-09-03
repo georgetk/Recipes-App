@@ -11,7 +11,10 @@ import {APP_COLORS, APP_TEXTS} from '../../constants';
 import {FlatList, ListRenderItem, View} from 'react-native';
 import {styles} from './styles';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { TIngredientsAndMeasureObject, TMealDetailsResponseWithIngredientsAndMeasures } from '../../types/recipeDetails';
+import {
+  TIngredientsAndMeasureObject,
+  TMealDetailsResponseWithIngredientsAndMeasures,
+} from '../../types/recipeDetails';
 
 type TIngredientsList = {
   mealItem: TMealDetailsResponseWithIngredientsAndMeasures | undefined;
@@ -20,7 +23,7 @@ type TIngredientsList = {
 export const IngredientsList: FC<TIngredientsList> = ({mealItem}) => {
   const renderItem: ListRenderItem<TIngredientsAndMeasureObject> = ({item}) => (
     <BoxContainer>
-      <View style={{flexDirection: 'row', alignItems: 'center'}}>
+      <View style={styles.boxAndTitleContainer}>
         <View style={styles.whiteBox}>
           <Icon
             name="food-variant"
@@ -36,7 +39,7 @@ export const IngredientsList: FC<TIngredientsList> = ({mealItem}) => {
   );
 
   return (
-    <View>
+    <View style={styles.ingredientsContainer}>
       <View style={styles.ingredientsTitleContainer}>
         <Title text={APP_TEXTS.INGREDIENTS} />
         <BodyText

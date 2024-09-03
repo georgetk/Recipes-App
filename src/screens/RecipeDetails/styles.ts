@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
   titleText: {
     paddingVertical: getNormalizedVerticalSizeWithPlatformOffset(20),
   },
+  ingredientsContainer: {flex: 1},
   ingredientsTitleContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -16,6 +17,7 @@ export const styles = StyleSheet.create({
     marginVertical: getNormalizedVerticalSizeWithPlatformOffset(20),
   },
   itemsCount: {fontWeight: '400'},
+  boxAndTitleContainer: {flexDirection: 'row', alignItems: 'center'},
   whiteBox: {
     width: getNormalizedVerticalSizeWithPlatformOffset(52),
     height: getNormalizedVerticalSizeWithPlatformOffset(52),
@@ -24,5 +26,8 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: getNormalizedSizeWithPlatformOffset(15),
+  },
+  bottomSpacing: {
+    height: getNormalizedVerticalSizeWithPlatformOffset(400),
   },
 });
