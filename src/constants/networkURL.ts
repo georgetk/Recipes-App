@@ -3,4 +3,5 @@ export const NETWORK_URL = {
   TRENDING_RECIPES_ENDPOINT: '/filter.php?a=Indian',
   ALL_CATEGORIES_ENDPOINT: '/categories.php',
   FILTER_BY_CATEGORIES_ENDPOINT: '/filter.php?c=',
+  RECIPE_DETAILS_ENDPOINT: '/lookup.php?i=',
 };

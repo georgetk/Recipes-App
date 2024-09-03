@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, TouchableOpacity} from 'react-native';
+import {Pressable, StyleSheet} from 'react-native';
 import Caption from '../Caption';
 import {APP_COLORS} from '../../constants';
 import {
@@ -14,9 +14,9 @@ type TTextButton = {
 
 const TextButton: React.FC<TTextButton> = ({text, onPress}) => {
   return (
-    <TouchableOpacity onPress={onPress} style={styles.container}>
+    <Pressable onPress={onPress} style={styles.container}>
       <Caption text={text} styling={styles.captionText} />
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 

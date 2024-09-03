@@ -3,17 +3,19 @@ import {
   BottomSpacer,
   ContainerWithHorizontalMargin,
   LargeTitle,
+  MainViewContainer,
   MemoizedRecipeListItem,
   VerticalSeparator,
 } from '../../components';
 import {FlatList} from 'react-native';
-import {useSavedItem} from '../../hooks/useSavedItem';
-import MainViewContainer from '../../components/MainViewContainer';
 import {styles} from './styles';
 import {APP_TEXTS} from '../../constants';
+import {useNavigateToRecipeDetails, useSavedItem} from '../../hooks';
 
 const SavedRecipes: React.FC = () => {
   const {savedRecipes} = useSavedItem();
+
+  const handleNavigation = useNavigateToRecipeDetails();
 
   return (
     <MainViewContainer>
@@ -30,6 +32,7 @@ const SavedRecipes: React.FC = () => {
           renderItem={({item}) => (
             <MemoizedRecipeListItem
               item={item}
+              onPress={() => handleNavigation(item.idMeal ?? '')}
               styling={styles.savedRecipeListItem}
             />
           )}

@@ -16,8 +16,15 @@ import VerticalSeparator from './VerticalSeparator';
 import BottomSpacer from './BottomSpacer';
 import {MemoizedCategoryButton} from './CategoryButton';
 import {MemoizedPopularRecipeItem} from './PopularRecipeItem';
+import MainViewContainer from './MainViewContainer';
+import {HeaderBarContainer} from './HeaderBarContainer';
+import {HeaderBarBackIconAndDots} from './HeaderBarBackIconAndDots';
+import {HeaderBarTextAndIcon} from './HeaderBarTextAndIcon';
+import {RecipeImageBackground} from './RecipeImageBackground';
+import {BoxContainer} from './BoxContainer';
 
 export {
+  MainViewContainer,
   MainScrollContainer,
   ContainerWithHorizontalMargin,
   InputField,
@@ -36,4 +43,9 @@ export {
   BottomSpacer,
   MemoizedCategoryButton,
   MemoizedPopularRecipeItem,
+  HeaderBarContainer,
+  HeaderBarBackIconAndDots,
+  HeaderBarTextAndIcon,
+  RecipeImageBackground,
+  BoxContainer,
 };

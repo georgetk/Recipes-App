@@ -1,6 +1,6 @@
-import {axiosInstance} from '.';
 import {NETWORK_URL} from '../constants';
-import {TMealsResponse} from '../types';
+import { TMealsResponse } from '../types/recipe';
+import { axiosInstance } from './axiosInstance';
 
 export const getRecipesInCategory = async (categoryName: string) => {
   try {

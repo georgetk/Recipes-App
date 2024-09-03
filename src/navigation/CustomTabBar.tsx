@@ -1,6 +1,6 @@
-import React, {FC} from 'react';
+import React from 'react';
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
-import {ImageBackground, TouchableOpacity, View} from 'react-native';
+import {ImageBackground, Pressable, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Octicons';
 
 import {styles} from './styles';
@@ -36,7 +36,10 @@ const getIconForRoute = (
   }
 };
 
-export const CustomTabBar: FC<BottomTabBarProps> = ({state, navigation}) => {
+export const CustomTabBar: React.FC<BottomTabBarProps> = ({
+  state,
+  navigation,
+}) => {
   return (
     <View style={styles.tabBarView}>
       <ImageBackground
@@ -59,12 +62,12 @@ export const CustomTabBar: FC<BottomTabBarProps> = ({state, navigation}) => {
           };
 
           return (
-            <TouchableOpacity
+            <Pressable
               key={route.key}
               onPress={onPress}
               style={styles.tabBarTouchable}>
               {getIconForRoute(route.name, isFocused)}
-            </TouchableOpacity>
+            </Pressable>
           );
         })}
       </ImageBackground>

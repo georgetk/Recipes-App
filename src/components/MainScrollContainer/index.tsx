@@ -1,7 +1,7 @@
 import React, {ReactNode} from 'react';
 import {ScrollView, StyleSheet} from 'react-native';
-import {APP_COLORS} from '../../constants/colors';
-import {useNotchHeight} from '../../hooks/useNotchHeight';
+import { APP_COLORS } from '../../constants';
+import { useNotchHeight } from '../../hooks';
 
 type TMainScrollContainer = {
   children: ReactNode;

@@ -1,7 +1,7 @@
 import {useCallback} from 'react';
-import {TMeal} from '../types';
 import {useSavedRecipesStore} from '../store';
 import {APP_COLORS} from '../constants';
+import { TMeal } from '../types/recipe';
 
 type TUseSavedItemReturn = {
   getColor: (recipeItem: TMeal) => string;

@@ -1,14 +1,16 @@
 import {useQuery} from '@tanstack/react-query';
 import React, {useEffect, useState} from 'react';
 import {REACT_QUERY_KEYS} from '../../constants';
-import {getAllCategories} from '../../api/getAllCategories';
 import {FlatList} from 'react-native';
 import {styles} from './styles';
 import {HorizontalSeparator, MemoizedCategoryButton} from '../../components';
 import {PopularCategoryRecipeList} from './PopularCategoryRecipeList';
+import {getAllCategories} from '../../api';
 
 export const PopularCategory: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState<
+    string | undefined
+  >();
 
   const query = useQuery({
     queryKey: [REACT_QUERY_KEYS.ALL_CATEGORIES],
@@ -29,7 +31,9 @@ export const PopularCategory: React.FC = () => {
         showsHorizontalScrollIndicator={false}
         data={query.data?.categories}
         contentContainerStyle={styles.flatListContentStyle}
-        keyExtractor={item => item.idCategory}
+        keyExtractor={(item, index) =>
+          item?.idCategory?.toString() || `${index}`
+        }
         ItemSeparatorComponent={HorizontalSeparator}
         renderItem={({item}) => (
           <MemoizedCategoryButton

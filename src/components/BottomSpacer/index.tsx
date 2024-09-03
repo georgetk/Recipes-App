@@ -1,8 +1,8 @@
-import React, {FC} from 'react';
+import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import {getNormalizedVerticalSizeWithPlatformOffset} from '../../utils/scaling';
 
-const BottomSpacer: FC = () => {
+const BottomSpacer: React.FC = () => {
   return <View style={styles.bottomSpacer} />;
 };
 

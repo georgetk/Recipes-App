@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, TouchableOpacity} from 'react-native';
+import {Pressable, StyleSheet} from 'react-native';
 import {
   getNormalizedSizeWithPlatformOffset,
   getNormalizedVerticalSizeWithPlatformOffset,
@@ -14,9 +14,9 @@ type TPrimaryButton = {
 
 const PrimaryButton: React.FC<TPrimaryButton> = ({text, onPress}) => {
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
+    <Pressable style={styles.container} onPress={onPress}>
       <Caption text={text} styling={styles.captionText} />
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 

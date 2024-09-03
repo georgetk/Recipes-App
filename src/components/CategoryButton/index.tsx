@@ -1,12 +1,12 @@
 import React, {FC, memo} from 'react';
 import PrimaryButton from '../PrimaryButton';
 import TextButton from '../TextButton';
-import {TCategory} from '../../types';
+import { TCategory } from '../../types/category';
 
 type TCategoryButton = {
   item: TCategory;
-  selectedCategory: string;
-  setSelectedCategory: (categoryName: string) => void;
+  selectedCategory: string | undefined;
+  setSelectedCategory: (categoryName: string | undefined) => void;
 };
 
 const CategoryButton: FC<TCategoryButton> = ({
@@ -17,12 +17,12 @@ const CategoryButton: FC<TCategoryButton> = ({
   <>
     {item?.strCategory === selectedCategory ? (
       <PrimaryButton
-        text={item?.strCategory}
+        text={item?.strCategory ?? ''}
         onPress={() => setSelectedCategory(item?.strCategory)}
       />
     ) : (
       <TextButton
-        text={item?.strCategory}
+        text={item?.strCategory ?? ''}
         onPress={() => setSelectedCategory(item?.strCategory)}
       />
     )}

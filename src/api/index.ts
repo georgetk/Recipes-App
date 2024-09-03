@@ -1,4 +1,5 @@
-import axios from 'axios';
-import {NETWORK_URL} from '../constants';
+import {getAllCategories} from './getAllCategories';
+import {getRecipesInCategory} from './getRecipesInCategory';
+import {getTrendingRecipes} from './getTrendingRecipes';
 
-export const axiosInstance = axios.create({baseURL: NETWORK_URL.BASE_URL});
+export {getTrendingRecipes, getAllCategories, getRecipesInCategory};

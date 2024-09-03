@@ -1,6 +1,6 @@
-import {axiosInstance} from '.';
 import {NETWORK_URL} from '../constants';
-import {TCategoriesResponse} from '../types';
+import { TCategoriesResponse } from '../types/category';
+import { axiosInstance } from './axiosInstance';
 
 export const getAllCategories = async () => {
   try {

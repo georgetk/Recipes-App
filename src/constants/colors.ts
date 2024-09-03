@@ -6,4 +6,5 @@ export const APP_COLORS = {
   BLACK: '#000000',
   PALE_BLUE: '#E4F9FA',
   NEUTRAL: '#C1C1C1',
+  BOX_BG: '#F1F1F1',
 };

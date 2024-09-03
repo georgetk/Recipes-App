@@ -1,22 +1,22 @@
-import React, {FC} from 'react';
+import React from 'react';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import SavedRecipes from '../screens/SavedRecipes';
-import {ROUTE_NAMES} from '../constants';
+import {NAVIGATOR_ID, ROUTE_NAMES} from '../constants';
+import {RecipeDetails} from '../screens/RecipeDetails';
+import {Tabs} from '.';
+import {TRootStackParamList} from '../types/navigation';
 
+const Stack = createNativeStackNavigator<TRootStackParamList>();
 
-const Stack = createNativeStackNavigator();
-
-const StackNavigator: FC = () => {
+const StackNavigator: React.FC = () => {
   return (
-    <Stack.Navigator screenOptions={{headerShown: false}}>
+    <Stack.Navigator
+      id={NAVIGATOR_ID.STACK}
+      screenOptions={{headerShown: false}}>
+      <Stack.Screen name={ROUTE_NAMES.HOME_STACK} component={Tabs} />
       <Stack.Screen
-        name={ROUTE_NAMES.SAVED_RECIPES_STACK}
-        component={SavedRecipes}
-      />
-      <Stack.Screen
-        name={ROUTE_NAMES.RECIPE_DETAIL_STACK}
-        component={SavedRecipes}
+        name={ROUTE_NAMES.RECIPE_DETAILS_STACK}
+        component={RecipeDetails}
       />
     </Stack.Navigator>
   );

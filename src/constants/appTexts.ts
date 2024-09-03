@@ -7,4 +7,5 @@ export const APP_TEXTS = {
   TIME: 'Time',
   STATIC_TIME: '10 Mins',
   SAVED_RECIPES: 'Saved recipes',
+  INGREDIENTS: 'Ingredients',
 };

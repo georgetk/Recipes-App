@@ -1,13 +1,13 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity, ViewStyle} from 'react-native';
 import Icon from 'react-native-vector-icons/Octicons';
-import {useSavedItem} from '../../hooks/useSavedItem';
 import {getNormalizedSizeWithPlatformOffset} from '../../utils/scaling';
 import {APP_COLORS} from '../../constants';
-import {TMeal} from '../../types';
+import { useSavedItem } from '../../hooks';
+import { TMeal } from '../../types/recipe';
 
 type TSaveButton = {
-  item: TMeal;
+  item: TMeal
   styling?: ViewStyle;
 };
 
