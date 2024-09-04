@@ -27,4 +27,10 @@ export const styles = StyleSheet.create({
   flashListContentStyle: {
     paddingHorizontal: getNormalizedSizeWithPlatformOffset(30),
   },
+  categoryFlashlistContainer: {
+    marginVertical: getNormalizedVerticalSizeWithPlatformOffset(20),
+    height: getNormalizedVerticalSizeWithPlatformOffset(34),
+    width: '100%',
+    alignItems: 'center',
+  },
 });

@@ -1,11 +1,14 @@
 import {useQuery} from '@tanstack/react-query';
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {REACT_QUERY_KEYS} from '../../constants';
-import {FlatList} from 'react-native';
+import {View} from 'react-native';
 import {styles} from './styles';
 import {HorizontalSeparator, MemoizedCategoryButton} from '../../components';
 import {PopularCategoryRecipeList} from './PopularCategoryRecipeList';
 import {getAllCategories} from '../../api';
+import {FlashList} from '@shopify/flash-list';
+import {getNormalizedSizeWithPlatformOffset} from '../../utils/scaling';
+import {TCategory} from '../../types/category';
 
 export const PopularCategory: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<
@@ -23,26 +26,33 @@ export const PopularCategory: React.FC = () => {
     }
   }, [query.data]);
 
+  const keyExtractor = useCallback(
+    (item: TCategory, index: number) =>
+      item?.idCategory?.toString() || `${index}`,
+    [],
+  );
+
   return (
     <>
-      <FlatList
-        style={styles.flatListStyle}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        data={query.data?.categories}
-        contentContainerStyle={styles.flatListContentStyle}
-        keyExtractor={(item, index) =>
-          item?.idCategory?.toString() || `${index}`
-        }
-        ItemSeparatorComponent={HorizontalSeparator}
-        renderItem={({item}) => (
-          <MemoizedCategoryButton
-            item={item}
-            selectedCategory={selectedCategory}
-            setSelectedCategory={setSelectedCategory}
-          />
-        )}
-      />
+      <View style={styles.categoryFlashlistContainer}>
+        <FlashList
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          data={query.data?.categories}
+          extraData={selectedCategory}
+          contentContainerStyle={styles.flashListContentStyle}
+          estimatedItemSize={getNormalizedSizeWithPlatformOffset(83)}
+          keyExtractor={keyExtractor}
+          ItemSeparatorComponent={HorizontalSeparator}
+          renderItem={({item}) => (
+            <MemoizedCategoryButton
+              item={item}
+              selectedCategory={selectedCategory}
+              setSelectedCategory={setSelectedCategory}
+            />
+          )}
+        />
+      </View>
 
       <PopularCategoryRecipeList selectedCategory={selectedCategory} />
     </>
