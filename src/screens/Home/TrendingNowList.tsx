@@ -9,7 +9,10 @@ import {
 import {REACT_QUERY_KEYS} from '../../constants';
 import {useQuery} from '@tanstack/react-query';
 import {getTrendingRecipes} from '../../api';
-import {useNavigateToRecipeDetails} from '../../hooks';
+import {
+  useKeyExtractorForRecipe,
+  useNavigateToRecipeDetails,
+} from '../../hooks';
 import {FlashList} from '@shopify/flash-list';
 import {getNormalizedSizeWithPlatformOffset} from '../../utils/scaling';
 
@@ -21,6 +24,8 @@ export const TrendingNowList: React.FC = ({}) => {
     queryFn: getTrendingRecipes,
   });
 
+  const keyExtractor = useKeyExtractorForRecipe();
+
   return (
     <View style={styles.trendingRecipesFlashlistContainer}>
       <FlashList
@@ -29,7 +34,7 @@ export const TrendingNowList: React.FC = ({}) => {
         data={query.data?.meals}
         estimatedItemSize={getNormalizedSizeWithPlatformOffset(280)}
         contentContainerStyle={styles.flashListContentStyle}
-        keyExtractor={(item, index) => item?.idMeal?.toString() || `${index}`}
+        keyExtractor={keyExtractor}
         ItemSeparatorComponent={HorizontalSeparator}
         ListEmptyComponent={ListEmptyComponent}
         renderItem={({item}) => (

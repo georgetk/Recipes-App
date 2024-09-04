@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React from 'react';
 import {REACT_QUERY_KEYS} from '../../constants';
 import {View} from 'react-native';
 import {useQuery} from '@tanstack/react-query';
@@ -8,11 +8,13 @@ import {
   MemoizedPopularRecipeItem,
 } from '../../components';
 import {getRecipesInCategory} from '../../api';
-import {useNavigateToRecipeDetails} from '../../hooks';
+import {
+  useKeyExtractorForRecipe,
+  useNavigateToRecipeDetails,
+} from '../../hooks';
 import {FlashList} from '@shopify/flash-list';
 import {getNormalizedVerticalSizeWithPlatformOffset} from '../../utils/scaling';
 import {styles} from './styles';
-import {TMeal} from '../../types/recipe';
 
 type TPopularCategoryRecipeList = {
   selectedCategory: string | undefined;
@@ -29,10 +31,7 @@ export const PopularCategoryRecipeList: React.FC<
     enabled: !!selectedCategory, // Only run query if selectedCategory is truthy
   });
 
-  const keyExtractor = useCallback(
-    (item: TMeal, index: number) => item?.idMeal?.toString() || `${index}`,
-    [],
-  );
+  const keyExtractor = useKeyExtractorForRecipe();
 
   return (
     <View style={styles.recipeItemsFlashlistContainer}>

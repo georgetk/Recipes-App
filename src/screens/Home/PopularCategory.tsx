@@ -27,7 +27,7 @@ export const PopularCategory: React.FC = () => {
   }, [query.data]);
 
   const keyExtractor = useCallback(
-    (item: TCategory, index: number) =>
+    (item: TCategory, index: number): string =>
       item?.idCategory?.toString() || `${index}`,
     [],
   );
