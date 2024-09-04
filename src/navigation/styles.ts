@@ -12,15 +12,6 @@ export const styles = StyleSheet.create({
     height: getNormalizedVerticalSizeWithPlatformOffset(100),
     position: 'absolute',
     bottom: 0,
-    // shadowColor: APP_COLORS.GREY,
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 2,
-    // },
-    // shadowOpacity: 0.25,
-    // shadowRadius: 3.84,
-
-    //elevation: 5,
   },
   tabBarBgImage: {
     width: '100%',

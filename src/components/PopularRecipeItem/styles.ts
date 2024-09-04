@@ -3,7 +3,7 @@ import {
   getNormalizedSizeWithPlatformOffset,
   getNormalizedVerticalSizeWithPlatformOffset,
 } from '../../utils/scaling';
-import { APP_COLORS } from '../../constants';
+import {APP_COLORS} from '../../constants';
 
 export const styles = StyleSheet.create({
   popularRecipeContainer: {
@@ -26,16 +26,6 @@ export const styles = StyleSheet.create({
     height: getNormalizedVerticalSizeWithPlatformOffset(120),
     justifyContent: 'center',
     alignItems: 'center',
-    // shadowColor: APP_COLORS.GREY,
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 2,
-    // },
-    // shadowOpacity: 0.25,
-    // shadowRadius: 3.84,
-
-    // elevation: 5,
-    // backgroundColor: 'rgba(0,0,0,0.5)',
   },
   popularRecipeImage: {
     width: getNormalizedVerticalSizeWithPlatformOffset(120),
