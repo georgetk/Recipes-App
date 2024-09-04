@@ -45,7 +45,7 @@ export const RecipeDetails: FC<Props> = ({navigation, route}) => {
   }, [navigation]);
 
   const query = useQuery({
-    queryKey: [REACT_QUERY_KEYS.RECIPE_DETAILS],
+    queryKey: [REACT_QUERY_KEYS.RECIPE_DETAILS, idMeal],
     queryFn: () => getRecipeDetails(idMeal),
   });
 
