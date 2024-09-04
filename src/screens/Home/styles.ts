@@ -19,9 +19,12 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   recipeItemsFlashlistContainer: {
-    marginVertical: getNormalizedVerticalSizeWithPlatformOffset(20),
+    marginVertical: getNormalizedVerticalSizeWithPlatformOffset(35),
     height: getNormalizedVerticalSizeWithPlatformOffset(250),
     width: '100%',
     alignItems: 'center',
+  },
+  flashListContentStyle: {
+    paddingHorizontal: getNormalizedSizeWithPlatformOffset(30),
   },
 });

@@ -2,7 +2,6 @@ import React from 'react';
 import {REACT_QUERY_KEYS} from '../../constants';
 import {View} from 'react-native';
 import {useQuery} from '@tanstack/react-query';
-
 import {
   HorizontalSeparator,
   ListEmptyComponent,
@@ -36,9 +35,7 @@ export const PopularCategoryRecipeList: React.FC<
         horizontal
         showsHorizontalScrollIndicator={false}
         data={query.data?.meals}
-        contentContainerStyle={{
-          paddingHorizontal: getNormalizedVerticalSizeWithPlatformOffset(30),
-        }}
+        contentContainerStyle={styles.flashListContentStyle}
         ItemSeparatorComponent={HorizontalSeparator}
         ListEmptyComponent={ListEmptyComponent}
         renderItem={({item}) => (
