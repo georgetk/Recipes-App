@@ -1,6 +1,6 @@
 import React from 'react';
 import {REACT_QUERY_KEYS} from '../../constants';
-import {FlatList} from 'react-native';
+import {View} from 'react-native';
 import {useQuery} from '@tanstack/react-query';
 
 import {
@@ -8,9 +8,11 @@ import {
   ListEmptyComponent,
   MemoizedPopularRecipeItem,
 } from '../../components';
-import {styles} from './styles';
 import {getRecipesInCategory} from '../../api';
 import {useNavigateToRecipeDetails} from '../../hooks';
+import {FlashList} from '@shopify/flash-list';
+import {getNormalizedVerticalSizeWithPlatformOffset} from '../../utils/scaling';
+import {styles} from './styles';
 
 type TPopularCategoryRecipeList = {
   selectedCategory: string | undefined;
@@ -28,14 +30,15 @@ export const PopularCategoryRecipeList: React.FC<
   });
 
   return (
-    <>
-      <FlatList
-        style={styles.flatListStyle}
+    <View style={styles.recipeItemsFlashlistContainer}>
+      <FlashList
+        estimatedItemSize={getNormalizedVerticalSizeWithPlatformOffset(150)}
         horizontal
         showsHorizontalScrollIndicator={false}
         data={query.data?.meals}
-        contentContainerStyle={styles.flatListContentStyle}
-        keyExtractor={(item, index) => item?.idMeal?.toString() || `${index}`}
+        contentContainerStyle={{
+          paddingHorizontal: getNormalizedVerticalSizeWithPlatformOffset(30),
+        }}
         ItemSeparatorComponent={HorizontalSeparator}
         ListEmptyComponent={ListEmptyComponent}
         renderItem={({item}) => (
@@ -45,6 +48,6 @@ export const PopularCategoryRecipeList: React.FC<
           />
         )}
       />
-    </>
+    </View>
   );
 };

@@ -20,10 +20,10 @@ export const styles = StyleSheet.create({
   popularRecipeImageContainer: {
     position: 'absolute',
     alignSelf: 'center',
-    top: -getNormalizedSizeWithPlatformOffset(110) / 2,
-    borderRadius: getNormalizedSizeWithPlatformOffset(120) / 2,
-    width: getNormalizedSizeWithPlatformOffset(120),
-    height: getNormalizedSizeWithPlatformOffset(120),
+    top: -getNormalizedVerticalSizeWithPlatformOffset(120) / 2,
+    borderRadius: getNormalizedVerticalSizeWithPlatformOffset(120) / 2,
+    width: getNormalizedVerticalSizeWithPlatformOffset(120),
+    height: getNormalizedVerticalSizeWithPlatformOffset(120),
     justifyContent: 'center',
     alignItems: 'center',
     // shadowColor: APP_COLORS.GREY,
@@ -38,9 +38,9 @@ export const styles = StyleSheet.create({
     // backgroundColor: 'rgba(0,0,0,0.5)',
   },
   popularRecipeImage: {
-    width: getNormalizedSizeWithPlatformOffset(110),
-    height: getNormalizedSizeWithPlatformOffset(110),
-    borderRadius: getNormalizedSizeWithPlatformOffset(110) / 2,
+    width: getNormalizedVerticalSizeWithPlatformOffset(120),
+    height: getNormalizedVerticalSizeWithPlatformOffset(120),
+    borderRadius: getNormalizedVerticalSizeWithPlatformOffset(120) / 2,
   },
   bottomBodyContainer: {
     marginHorizontal: getNormalizedSizeWithPlatformOffset(15),

@@ -18,4 +18,10 @@ export const styles = StyleSheet.create({
     paddingHorizontal: getNormalizedSizeWithPlatformOffset(30),
     alignItems: 'center',
   },
+  recipeItemsFlashlistContainer: {
+    marginVertical: getNormalizedVerticalSizeWithPlatformOffset(20),
+    height: getNormalizedVerticalSizeWithPlatformOffset(250),
+    width: '100%',
+    alignItems: 'center',
+  },
 });
