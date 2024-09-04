@@ -1,11 +1,7 @@
 import React from 'react';
-import {Pressable, StyleSheet} from 'react-native';
-import {
-  getNormalizedSizeWithPlatformOffset,
-  getNormalizedVerticalSizeWithPlatformOffset,
-} from '../../utils/scaling';
-import {APP_COLORS} from '../../constants';
+import {Pressable} from 'react-native';
 import Caption from '../Caption';
+import {styles} from './styles';
 
 type TPrimaryButtonSmall = {
   text: string;
@@ -19,17 +15,5 @@ const PrimaryButtonSmall: React.FC<TPrimaryButtonSmall> = ({text, onPress}) => {
     </Pressable>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    width: getNormalizedSizeWithPlatformOffset(83),
-    height: getNormalizedVerticalSizeWithPlatformOffset(34),
-    borderRadius: getNormalizedSizeWithPlatformOffset(10),
-    backgroundColor: APP_COLORS.PRIMARY_COLOR,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  captionText: {fontWeight: 'bold', color: APP_COLORS.WHITE},
-});
 
 export default PrimaryButtonSmall;
