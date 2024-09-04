@@ -1,7 +1,7 @@
 import {create} from 'zustand';
 import {createJSONStorage, persist} from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {TMeal} from '../types';
+import {TMeal} from '../types/recipe';
 
 type TSavedRecipes = {
   savedRecipes: TMeal[];
@@ -9,6 +9,8 @@ type TSavedRecipes = {
   removeSavedRecipes: (recipeItem: TMeal) => void;
 };
 
+// Store for keeping the saved recipes
+// Data is also persisted to AsyncStorage
 export const useSavedRecipesStore = create<TSavedRecipes>()(
   persist(
     set => ({

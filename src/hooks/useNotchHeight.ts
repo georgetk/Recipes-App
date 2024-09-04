@@ -2,6 +2,8 @@ import {Platform, StatusBar} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useMemo} from 'react';
 
+// For adding an additional padding at the top
+// based on the platform's notch
 export const useNotchHeight = (): number => {
   const insets = useSafeAreaInsets();
 
