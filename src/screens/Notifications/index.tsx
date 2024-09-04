@@ -69,6 +69,7 @@ export const Notifications: React.FC = () => {
                 />
               </View>
             </View>
+            <View style={styles.blueDot} />
           </BoxContainer>
         </Pressable>
       </ContainerWithHorizontalMargin>

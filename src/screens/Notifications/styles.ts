@@ -29,4 +29,11 @@ export const styles = StyleSheet.create({
     paddingTop: getNormalizedVerticalSizeWithPlatformOffset(10),
     color: APP_COLORS.NEUTRAL_TEXT_COLOR,
   },
+  blueDot: {
+    backgroundColor: APP_COLORS.PRIMARY_COLOR,
+    height: getNormalizedSizeWithPlatformOffset(6),
+    width: getNormalizedSizeWithPlatformOffset(6),
+    borderRadius: getNormalizedSizeWithPlatformOffset(3),
+    alignSelf: 'flex-start',
+  },
 });
