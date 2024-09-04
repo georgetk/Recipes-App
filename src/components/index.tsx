@@ -7,7 +7,6 @@ import BodyText from './BodyText';
 import Caption from './Caption';
 import InputField from './InputField';
 import HorizontalSeparator from './HorizontalSeparator';
-import PrimaryButton from './PrimaryButton';
 import TextButton from './TextButton';
 import {SaveButton} from './SaveItem';
 import {ListEmptyComponent} from './ListEmptyComponent';
@@ -23,6 +22,9 @@ import {HeaderBarTextAndIcon} from './HeaderBarTextAndIcon';
 import {RecipeImageBackground} from './RecipeImageBackground';
 import {BoxContainer} from './BoxContainer';
 import {SecondaryButton} from './SecondaryButton';
+import {BoxContainerForCreateAndDetails} from './BoxContainerForCreateAndDetails';
+import PrimaryButtonSmall from './PrimaryButtonSmall';
+import PrimaryButtonLarge from './PrimaryButtonLarge';
 
 export {
   MainViewContainer,
@@ -35,7 +37,6 @@ export {
   BodyText,
   Caption,
   HorizontalSeparator,
-  PrimaryButton,
   TextButton,
   SaveButton,
   ListEmptyComponent,
@@ -50,4 +51,7 @@ export {
   RecipeImageBackground,
   BoxContainer,
   SecondaryButton,
+  BoxContainerForCreateAndDetails,
+  PrimaryButtonSmall,
+  PrimaryButtonLarge,
 };

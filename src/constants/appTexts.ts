@@ -19,4 +19,8 @@ export const APP_TEXTS = {
   USER_NAME: 'Alessandra Blair',
   USER_INTRO:
     "Hello world I'm Alessandra Blair, I'm from Italy 🇮🇹 I love cooking so much!",
+  ENTER_RECIPE_NAME: 'Enter recipe name',
+  SERVES: 'Serves',
+  COOK_TIME: 'Cook time (mins)',
+  SAVE_MY_RECIPES: 'Save my recipes',
 };

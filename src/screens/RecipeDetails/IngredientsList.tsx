@@ -2,8 +2,7 @@ import React, {FC} from 'react';
 import {
   BodyText,
   BottomSpacer,
-  BoxContainer,
-  Subtitle,
+  BoxContainerForCreateAndDetails,
   Title,
   VerticalSeparator,
 } from '../../components';
@@ -22,20 +21,15 @@ type TIngredientsList = {
 
 export const IngredientsList: FC<TIngredientsList> = ({mealItem}) => {
   const renderItem: ListRenderItem<TIngredientsAndMeasureObject> = ({item}) => (
-    <BoxContainer>
-      <View style={styles.boxAndTitleContainer}>
-        <View style={styles.whiteBox}>
-          <Icon
-            name="food-variant"
-            color={APP_COLORS.PRIMARY_COLOR}
-            size={32}
-          />
-        </View>
-        <Subtitle text={item?.ingredient ?? ''} />
-      </View>
-
-      <BodyText text={item?.measure ?? ''} styling={styles.itemsCount} />
-    </BoxContainer>
+    <BoxContainerForCreateAndDetails
+      text={item?.ingredient ?? ''}
+      leftItem={
+        <Icon name="food-variant" color={APP_COLORS.PRIMARY_COLOR} size={32} />
+      }
+      rightItem={
+        <BodyText text={item?.measure ?? ''} styling={styles.itemsCount} />
+      }
+    />
   );
 
   return (

@@ -10,4 +10,5 @@ export const APP_COLORS = {
   GREEN: '#31B057',
   PALE_GREEN: '#CEECD7',
   NEUTRAL_TEXT_COLOR: '#797979',
+  BORDER_GREY: '#D9D9D9',
 };

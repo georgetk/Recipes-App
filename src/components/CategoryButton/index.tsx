@@ -1,7 +1,7 @@
 import React, {FC, memo} from 'react';
-import PrimaryButton from '../PrimaryButton';
 import TextButton from '../TextButton';
-import { TCategory } from '../../types/category';
+import {TCategory} from '../../types/category';
+import PrimaryButtonSmall from '../PrimaryButtonSmall';
 
 type TCategoryButton = {
   item: TCategory;
@@ -16,7 +16,7 @@ const CategoryButton: FC<TCategoryButton> = ({
 }) => (
   <>
     {item?.strCategory === selectedCategory ? (
-      <PrimaryButton
+      <PrimaryButtonSmall
         text={item?.strCategory ?? ''}
         onPress={() => setSelectedCategory(item?.strCategory)}
       />
