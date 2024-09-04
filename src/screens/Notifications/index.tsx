@@ -21,14 +21,8 @@ import {useIsFocused} from '@react-navigation/native';
 
 export const Notifications = () => {
   const [startFetching, setStartFetching] = useState(false);
-
-  const query = useQuery({
-    queryKey: [REACT_QUERY_KEYS.RANDOM_RECIPE],
-    queryFn: getRandomRecipe,
-    enabled: startFetching,
-  });
-
   const isFocused = useIsFocused();
+  const handleNavigation = useNavigateToRecipeDetails();
 
   useEffect(() => {
     if (isFocused) {
@@ -36,7 +30,11 @@ export const Notifications = () => {
     }
   }, [isFocused]);
 
-  const handleNavigation = useNavigateToRecipeDetails();
+  const query = useQuery({
+    queryKey: [REACT_QUERY_KEYS.RANDOM_RECIPE],
+    queryFn: getRandomRecipe,
+    enabled: startFetching,
+  });
 
   useEffect(() => {
     if (query.data?.meals) {
