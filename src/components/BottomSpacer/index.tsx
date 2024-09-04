@@ -8,7 +8,7 @@ const BottomSpacer: React.FC = () => {
 
 const styles = StyleSheet.create({
   bottomSpacer: {
-    height: getNormalizedVerticalSizeWithPlatformOffset(200),
+    height: getNormalizedVerticalSizeWithPlatformOffset(250),
   },
 });
 

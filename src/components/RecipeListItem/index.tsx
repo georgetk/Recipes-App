@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
   itemContainer: {
     borderRadius: getNormalizedSizeWithPlatformOffset(10),
     width: getNormalizedSizeWithPlatformOffset(280),
+    height: getNormalizedVerticalSizeWithPlatformOffset(254),
   },
   itemText: {
     marginTop: getNormalizedVerticalSizeWithPlatformOffset(10),

@@ -6,4 +6,5 @@ export const styles = StyleSheet.create({
     marginBottom: getNormalizedVerticalSizeWithPlatformOffset(30),
   },
   savedRecipeListItem: {width: '100%'},
+  flashlistContainer: {height: '100%', width: '100%'},
 });

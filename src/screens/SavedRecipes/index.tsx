@@ -7,10 +7,12 @@ import {
   MemoizedRecipeListItem,
   VerticalSeparator,
 } from '../../components';
-import {FlatList} from 'react-native';
+import {View} from 'react-native';
 import {styles} from './styles';
 import {APP_TEXTS} from '../../constants';
 import {useNavigateToRecipeDetails, useSavedItem} from '../../hooks';
+import {FlashList} from '@shopify/flash-list';
+import {getNormalizedVerticalSizeWithPlatformOffset} from '../../utils/scaling';
 
 const SavedRecipes: React.FC = () => {
   const {savedRecipes} = useSavedItem();
@@ -25,19 +27,22 @@ const SavedRecipes: React.FC = () => {
           styling={styles.savedRecipeTitle}
         />
 
-        <FlatList
-          data={savedRecipes}
-          showsVerticalScrollIndicator={false}
-          ItemSeparatorComponent={VerticalSeparator}
-          renderItem={({item}) => (
-            <MemoizedRecipeListItem
-              item={item}
-              onPress={() => handleNavigation(item.idMeal ?? '')}
-              styling={styles.savedRecipeListItem}
-            />
-          )}
-          ListFooterComponent={BottomSpacer}
-        />
+        <View style={styles.flashlistContainer}>
+          <FlashList
+            data={savedRecipes}
+            estimatedItemSize={getNormalizedVerticalSizeWithPlatformOffset(254)}
+            showsVerticalScrollIndicator={false}
+            ItemSeparatorComponent={VerticalSeparator}
+            renderItem={({item}) => (
+              <MemoizedRecipeListItem
+                item={item}
+                onPress={() => handleNavigation(item.idMeal ?? '')}
+                styling={styles.savedRecipeListItem}
+              />
+            )}
+            ListFooterComponent={BottomSpacer}
+          />
+        </View>
       </ContainerWithHorizontalMargin>
     </MainViewContainer>
   );
