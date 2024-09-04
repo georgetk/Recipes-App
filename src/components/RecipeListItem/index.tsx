@@ -30,7 +30,7 @@ const RecipeListItem: React.FC<TRecipeListItem> = ({
     <View style={styles.authorContainer}>
       <MaterialCommunityIcons
         name="account-outline"
-        size={40}
+        size={30}
         color={APP_COLORS.NEUTRAL}
       />
       <Caption
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     width: getNormalizedSizeWithPlatformOffset(280),
   },
   itemText: {
-    marginTop: getNormalizedVerticalSizeWithPlatformOffset(20),
+    marginTop: getNormalizedVerticalSizeWithPlatformOffset(10),
   },
   authorText: {
     color: APP_COLORS.GREY,
@@ -56,7 +56,8 @@ const styles = StyleSheet.create({
   authorContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: getNormalizedVerticalSizeWithPlatformOffset(10),
+    marginTop: getNormalizedVerticalSizeWithPlatformOffset(5),
+    height: getNormalizedVerticalSizeWithPlatformOffset(32),
   },
 });
 

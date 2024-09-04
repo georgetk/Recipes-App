@@ -11,11 +11,16 @@ export const styles = StyleSheet.create({
   searchBar: {
     marginVertical: getNormalizedVerticalSizeWithPlatformOffset(20),
   },
-  flatListStyle: {
+  trendingRecipesFlashlistContainer: {
     marginVertical: getNormalizedVerticalSizeWithPlatformOffset(20),
+    height: getNormalizedVerticalSizeWithPlatformOffset(254),
+    width: '100%',
+    alignItems: 'center',
   },
-  flatListContentStyle: {
-    paddingHorizontal: getNormalizedSizeWithPlatformOffset(30),
+  categoryFlashlistContainer: {
+    marginVertical: getNormalizedVerticalSizeWithPlatformOffset(20),
+    height: getNormalizedVerticalSizeWithPlatformOffset(34),
+    width: '100%',
     alignItems: 'center',
   },
   recipeItemsFlashlistContainer: {
@@ -26,11 +31,5 @@ export const styles = StyleSheet.create({
   },
   flashListContentStyle: {
     paddingHorizontal: getNormalizedSizeWithPlatformOffset(30),
-  },
-  categoryFlashlistContainer: {
-    marginVertical: getNormalizedVerticalSizeWithPlatformOffset(20),
-    height: getNormalizedVerticalSizeWithPlatformOffset(34),
-    width: '100%',
-    alignItems: 'center',
   },
 });

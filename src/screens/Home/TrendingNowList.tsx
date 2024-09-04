@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList} from 'react-native';
+import {View} from 'react-native';
 import {styles} from './styles';
 import {
   HorizontalSeparator,
@@ -9,7 +9,9 @@ import {
 import {REACT_QUERY_KEYS} from '../../constants';
 import {useQuery} from '@tanstack/react-query';
 import {getTrendingRecipes} from '../../api';
-import { useNavigateToRecipeDetails } from '../../hooks';
+import {useNavigateToRecipeDetails} from '../../hooks';
+import {FlashList} from '@shopify/flash-list';
+import {getNormalizedSizeWithPlatformOffset} from '../../utils/scaling';
 
 export const TrendingNowList: React.FC = ({}) => {
   const handleNavigation = useNavigateToRecipeDetails();
@@ -20,21 +22,23 @@ export const TrendingNowList: React.FC = ({}) => {
   });
 
   return (
-    <FlatList
-      style={styles.flatListStyle}
-      horizontal
-      showsHorizontalScrollIndicator={false}
-      data={query.data?.meals}
-      contentContainerStyle={styles.flatListContentStyle}
-      keyExtractor={(item, index) => item?.idMeal?.toString() || `${index}`}
-      ItemSeparatorComponent={HorizontalSeparator}
-      ListEmptyComponent={ListEmptyComponent}
-      renderItem={({item}) => (
-        <MemoizedRecipeListItem
-          item={item}
-          onPress={() => handleNavigation(item.idMeal ?? '')}
-        />
-      )}
-    />
+    <View style={styles.trendingRecipesFlashlistContainer}>
+      <FlashList
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        data={query.data?.meals}
+        estimatedItemSize={getNormalizedSizeWithPlatformOffset(280)}
+        contentContainerStyle={styles.flashListContentStyle}
+        keyExtractor={(item, index) => item?.idMeal?.toString() || `${index}`}
+        ItemSeparatorComponent={HorizontalSeparator}
+        ListEmptyComponent={ListEmptyComponent}
+        renderItem={({item}) => (
+          <MemoizedRecipeListItem
+            item={item}
+            onPress={() => handleNavigation(item.idMeal ?? '')}
+          />
+        )}
+      />
+    </View>
   );
 };
