@@ -36,7 +36,7 @@ export const MyProfile: React.FC = () => {
             <MaterialCommunityIcons
               name="account-outline"
               size={40}
-              color={APP_COLORS.BLACK}
+              color={APP_COLORS.NEUTRAL}
             />
           </View>
           <SecondaryButton

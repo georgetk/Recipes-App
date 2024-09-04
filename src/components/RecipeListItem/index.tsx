@@ -1,5 +1,5 @@
 import React, {memo} from 'react';
-import {Pressable, StyleSheet, ViewStyle} from 'react-native';
+import {Pressable, StyleSheet, View, ViewStyle} from 'react-native';
 import Subtitle from '../Subtitle';
 import {
   getNormalizedSizeWithPlatformOffset,
@@ -7,6 +7,9 @@ import {
 } from '../../utils/scaling';
 import {RecipeImageBackground} from '../RecipeImageBackground';
 import {TMeal} from '../../types/recipe';
+import {APP_COLORS, APP_TEXTS} from '../../constants';
+import Caption from '../Caption';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 type TRecipeListItem = {
   item: TMeal;
@@ -24,6 +27,17 @@ const RecipeListItem: React.FC<TRecipeListItem> = ({
   <Pressable onPress={onPress} style={[styles.itemContainer, styling]}>
     <RecipeImageBackground item={item} />
     <Subtitle text={item?.strMeal ?? ''} styling={styles.itemText} />
+    <View style={styles.authorContainer}>
+      <MaterialCommunityIcons
+        name="account-outline"
+        size={40}
+        color={APP_COLORS.NEUTRAL}
+      />
+      <Caption
+        text={APP_TEXTS.RECIPE_AUTHOR_NAME}
+        styling={styles.authorText}
+      />
+    </View>
   </Pressable>
 );
 
@@ -34,6 +48,15 @@ const styles = StyleSheet.create({
   },
   itemText: {
     marginTop: getNormalizedVerticalSizeWithPlatformOffset(20),
+  },
+  authorText: {
+    color: APP_COLORS.GREY,
+    marginLeft: getNormalizedVerticalSizeWithPlatformOffset(10),
+  },
+  authorContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: getNormalizedVerticalSizeWithPlatformOffset(10),
   },
 });
 

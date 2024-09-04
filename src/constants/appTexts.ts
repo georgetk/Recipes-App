@@ -23,4 +23,5 @@ export const APP_TEXTS = {
   SERVES: 'Serves',
   COOK_TIME: 'Cook time (mins)',
   SAVE_MY_RECIPES: 'Save my recipes',
+  RECIPE_AUTHOR_NAME: 'By Niki Samantha',
 };
