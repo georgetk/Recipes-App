@@ -14,4 +14,9 @@ export const APP_TEXTS = {
   TODAY: 'Today',
   NEW_RECIPE: 'New recipe!',
   RANDOM_RECIPE: 'Tap to see a random recipe.',
+  MY_PROFILE: 'My profile',
+  EDIT_PROFILE: 'Edit profile',
+  USER_NAME: 'Alessandra Blair',
+  USER_INTRO:
+    "Hello world I'm Alessandra Blair, I'm from Italy 🇮🇹 I love cooking so much!",
 };

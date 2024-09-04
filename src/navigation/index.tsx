@@ -3,17 +3,16 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import Home from '../screens/Home';
 import CreateRecipe from '../screens/CreateRecipe';
-import MyProfile from '../screens/MyProfile';
 import {Notifications} from '../screens/Notifications';
 import {NAVIGATOR_ID, ROUTE_NAMES} from '../constants';
 import {CustomTabBar} from './CustomTabBar';
 import SavedRecipes from '../screens/SavedRecipes';
-import { TRootTabsParamList } from '../types/navigation';
-
+import {TRootTabsParamList} from '../types/navigation';
+import {MyProfile} from '../screens/MyProfile';
 
 const Tab = createBottomTabNavigator<TRootTabsParamList>();
 
-export function Tabs() {
+export const Tabs: React.FC = () => {
   return (
     <Tab.Navigator
       id={NAVIGATOR_ID.TABS}
@@ -26,4 +25,4 @@ export function Tabs() {
       <Tab.Screen name={ROUTE_NAMES.MY_PROFILE} component={MyProfile} />
     </Tab.Navigator>
   );
-}
+};

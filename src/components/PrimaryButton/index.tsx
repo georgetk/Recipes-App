@@ -12,13 +12,11 @@ type TPrimaryButton = {
   onPress: () => void;
 };
 
-const PrimaryButton: React.FC<TPrimaryButton> = ({text, onPress}) => {
-  return (
-    <Pressable style={styles.container} onPress={onPress}>
-      <Caption text={text} styling={styles.captionText} />
-    </Pressable>
-  );
-};
+const PrimaryButton: React.FC<TPrimaryButton> = ({text, onPress}) => (
+  <Pressable style={styles.container} onPress={onPress}>
+    <Caption text={text} styling={styles.captionText} />
+  </Pressable>
+);
 
 const styles = StyleSheet.create({
   container: {

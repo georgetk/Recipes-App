@@ -19,7 +19,7 @@ import {useQuery} from '@tanstack/react-query';
 import {useNavigateToRecipeDetails} from '../../hooks';
 import {useIsFocused} from '@react-navigation/native';
 
-export const Notifications = () => {
+export const Notifications: React.FC = () => {
   const [startFetching, setStartFetching] = useState(false);
   const isFocused = useIsFocused();
   const handleNavigation = useNavigateToRecipeDetails();

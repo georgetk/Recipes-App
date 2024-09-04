@@ -22,6 +22,7 @@ import {HeaderBarBackIconAndDots} from './HeaderBarBackIconAndDots';
 import {HeaderBarTextAndIcon} from './HeaderBarTextAndIcon';
 import {RecipeImageBackground} from './RecipeImageBackground';
 import {BoxContainer} from './BoxContainer';
+import {SecondaryButton} from './SecondaryButton';
 
 export {
   MainViewContainer,
@@ -48,4 +49,5 @@ export {
   HeaderBarTextAndIcon,
   RecipeImageBackground,
   BoxContainer,
+  SecondaryButton,
 };
