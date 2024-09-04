@@ -9,11 +9,11 @@ import {
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {NAVIGATOR_ID, REACT_QUERY_KEYS, ROUTE_NAMES} from '../../constants';
 import {useQuery} from '@tanstack/react-query';
-import {getRecipeDetails} from '../../api/getRecipeDetails';
 import {styles} from './styles';
 import {IngredientsList} from './IngredientsList';
 import {TRootStackParamList} from '../../types/navigation';
 import {TMealDetailsResponseWithIngredientsAndMeasures} from '../../types/recipeDetails';
+import { getRecipeDetails } from '../../api';
 
 type Props = NativeStackScreenProps<
   TRootStackParamList,
