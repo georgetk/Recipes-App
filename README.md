@@ -1,7 +1,10 @@
 Run:
 ```yarn install && npx pod-install && yarn ios && yarn android```
 
- ![](./demo.gif)
+|    Demo          |
+|   -----------    |
+| ![](./demo.gif)  |
+
 
 Highlights:
 - ```zustand``` and ```@react-native-async-storage/async-storage``` for recipe saving
